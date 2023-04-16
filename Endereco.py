@@ -1,5 +1,6 @@
+from Estado import Estado
 class Endereco():
-    def __init__(self, rua, numero, complemento, cep, estado, cidade):
+    def __init__(self, rua, numero, complemento, cep, estado: Estado, cidade):
         self._rua = rua
         self._numero = numero
         self._complemento = complemento

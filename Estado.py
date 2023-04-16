@@ -28,4 +28,3 @@ class Estado (Enum):
     MT = 51
     GO = 52
     DF = 53
-            

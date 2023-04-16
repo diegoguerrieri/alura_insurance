@@ -1,7 +1,6 @@
 from Endereco import Endereco
 from datetime import date, timedelta
 from numpy import timedelta64
-from dateutil.relativedelta import relativedelta
 import regex as reg
 from Contato import Contato
 from Estado import Estado
@@ -10,40 +9,42 @@ from Estado import Estado
 class Pessoa():
     def __init__(self, primeiro_nome, sobrenome, data_nasc: date, cpf, rg, endereco: Endereco, contato: Contato):
         self._primeiro_nome = primeiro_nome
-        if len(primeiro_nome) < 2 or self._primeiro_nome == '':
-            return print(f"{self._primeiro_nome} deve conter no mínimo 2 carcteres")
+        if len(primeiro_nome) < 2 or primeiro_nome == '':
+            raise ("primeiro_nome deve conter no mínimo 2 carcteres")
+        
         
         self._sobrenome = sobrenome
         if len(sobrenome) < 2 or self._sobrenome == '':
-            return print(f"{self._sobrenome} deve conter no mínimo 2 carcteres")
+            raise ("sobrenome deve conter no mínimo 2 carcteres")
         
         self._data_nasc = data_nasc
-        if relativedelta(date.today(), self._data_nasc).years < 18:
-            return print("idade precisa ser maior do que 18")
-        
+                
         self._cpf = cpf
         formato_cpf = reg.compile('\d{3}\.\d{3}\.\d{3}\-\d{2}')
         if formato_cpf.search(self._cpf) is None:
-            return print("Rever o formato do CPF")
+            raise ("Rever o formato do CPF")
         
         self._rg = rg
         if self._rg is None or self._rg == '':
-            return print("RG não pode ser nulo")
+            raise ("RG não pode ser nulo")
         
         self._endereco = endereco
         dict= {'rua': endereco._rua,'numero': endereco._numero,'cep':endereco._cep, 'cidade': endereco._cidade}
         for ender in dict:
             if dict[ender] is None or dict[ender].strip() == '':
-                return print("Endereço incompleto")
+                raise print("Endereço incompleto")
+        
         try:
             Estado[endereco._estado]
         except:
             print("Digite um estado válido")
-            raise       
+            raise
+                   
+        
         self._contato = contato
         formato_email = reg.compile('^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$')
         if formato_email.search(contato._email) is None:
-            return print("Email incorreto")
+            raise ("Email incorreto")
         
         
     def nome_completo(self):
@@ -54,9 +55,11 @@ class Pessoa():
 
 
 endereco1 = Endereco("Mercês", "43", "casa", "123", "RJ", "RJ")
+endereco1._estado
 Contato1 = Contato("123","123","123","erikagascao@gmail.com")
-pessoa1 = Pessoa("aaaa","abc", date(2000,1,1),"058.784.477-97","123",endereco1, Contato1)
-pessoa1._contato
+pessoa1 = Pessoa("aaa","abc", date(2000,1,1),"058.784.477-97","123",endereco1, Contato1)
+print("Olá Mundo")
+pessoa1._primeiro_nome
 
 type(date.today())
 date(date.today().year, date.today().month, date.today().day)
