@@ -3,8 +3,6 @@ from typing import List
 from Beneficiario import Beneficiario
 from Corretor import Corretor
 from datetime import date
-from Endereco import Endereco
-from Contato import Contato
 from dateutil.relativedelta import relativedelta
 from Apolice import Apolice
 
@@ -26,5 +24,5 @@ class Segurado(Pessoa):
         return f"{lista}"
 
     def calcula_premio(self):
-        return sum(x._valor_premio for x in self._apolices) 
+        return sum(x._valor_premio for x in self._apolice) 
         

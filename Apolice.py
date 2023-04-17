@@ -1,5 +1,4 @@
 from enum import Enum
-from Segurado import Segurado
 from datetime import date
 from Corretor import Corretor
 from datetime import date
