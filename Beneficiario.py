@@ -1,5 +1,4 @@
 from Pessoa import Pessoa
-from dateutil.relativedelta import relativedelta
 from datetime import date
 
 class Beneficiario(Pessoa):

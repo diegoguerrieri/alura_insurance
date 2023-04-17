@@ -12,7 +12,7 @@ class TipoApolice(Enum):
     Viagem = 4
         
 class Apolice():
-    def __init__(self, tipo: TipoApolice, valor_premio, valor_benef, segurado: Segurado, corretor: Corretor, vig: date, dt_criacao: date, status):
+    def __init__(self, tipo: TipoApolice, valor_premio, valor_benef, segurado, corretor: Corretor, vig: date, dt_criacao: date, status):
         self._numero = uuid.uuid1() 
         self._tipo = tipo
         if tipo == TipoApolice.Vida:

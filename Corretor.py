@@ -22,5 +22,3 @@ class Corretor():
         self._apolice = apolice
 
 
-Contato1 = Contato("123","123","123","erikagascao@gmail.com")        
-corret1 = Corretor("Paloma", "Ferraz", Contato1, "15414612345678901", "774")

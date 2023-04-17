@@ -54,16 +54,3 @@ class Pessoa():
         return f"{self._primeiro_nome} {self._sobrenome} - {self._data_nasc.strftime('%d/%m/%Y')}"
 
 
-endereco1 = Endereco("Mercês", "43", "casa", "123", "RJ", "RJ")
-endereco1._estado
-Contato1 = Contato("123","123","123","erikagascao@gmail.com")
-pessoa1 = Pessoa("aaa","abc", date(2000,1,1),"058.784.477-97","123",endereco1, Contato1)
-print("Olá Mundo")
-pessoa1._primeiro_nome
-
-type(date.today())
-date(date.today().year, date.today().month, date.today().day)
-formato_cpf = reg.compile('\d{3}\.\d{3}\.\d{3}\-\d{2}')
-cpf = "58.784.477-97"
-formato_cpf.search(cpf)
-
