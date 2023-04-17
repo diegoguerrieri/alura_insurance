@@ -41,7 +41,7 @@ class Testclas:
         # when - ação
         resultado = seg1.calcula_premio()
         
-        # tehn - desfecho
+        # then - desfecho
         assert resultado == esperado
         
     
